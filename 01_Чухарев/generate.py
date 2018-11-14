@@ -21,18 +21,21 @@ for i in range(10):
         'name': f.company(),
         'price': random.randint(100, 10000) / 100
     })
-for i in range(random.randint(0, 10)):
-    sales.append({
-        'user': users[random.randint(0, 9)]['name'],
-        'product': products[random.randint(0, 9)]['name'],
-        'date': time.strftime('%x', f.date_between(
-            start_date=datetime.date(2017, 1, 1),
-            end_date=datetime.date(2018, 12, 31)
-        ).timetuple()),
-        'count': random.randint(1, 10)
-    })
+
+for u in users:
+    for i in range(random.randint(0, 10)):
+        sales.append({
+            'user': u['name'],
+            'product': products[random.randint(0, 9)]['name'],
+            'date': time.strftime('%x', f.date_between(
+                start_date=datetime.date(2017, 1, 1),
+                end_date=datetime.date(2018, 12, 31)
+            ).timetuple()),
+            'count': random.randint(1, 10)
+        })
 
 data = {'users': users, 'products': products, 'sales': sales}
+
 for name in data:
     f = open(name + '.json', 'w', encoding="UTF-8")
     json.dump(data[name], f)
