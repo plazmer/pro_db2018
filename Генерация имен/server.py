@@ -10,7 +10,7 @@ def stat(filename):
 
 @route('/')
 def ret_index():
-    return static_file('index.html', '03/')
+    return static_file('index.html', './')
 
 @get('/phone')
 def phone_gen():
