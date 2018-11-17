@@ -5,12 +5,12 @@ fake = Faker('ru_RU')
 
 @route('/assets/<filename>')
 def stat(filename):
-    return static_file(filename, 'D:/projects/python/praw/03/assets/')
+    return static_file(filename, 'assets/')
 
 
 @route('/')
 def ret_index():
-    return static_file('index.html', 'D:/projects/python/praw/03/')
+    return static_file('index.html', '03/')
 
 @get('/phone')
 def phone_gen():
